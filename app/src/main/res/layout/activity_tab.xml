@@ -26,7 +26,7 @@
             app:title="@string/app_name">
 
             <Spinner
-                android:id="@+id/spinner"
+                android:id="@+id/spinner1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 app:popupTheme="@style/AppTheme.PopupOverlay" />

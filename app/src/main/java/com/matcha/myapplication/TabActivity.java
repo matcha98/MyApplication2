@@ -1,15 +1,11 @@
 package com.matcha.myapplication;
 
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
@@ -24,17 +20,21 @@ import android.widget.TextView;
 
 public class TabActivity extends AppCompatActivity {
 
+    public String getPid()
+    {
+        return "2";
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_tab);
-
+        String pid="2";
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayShowTitleEnabled(false);
 
         // Setup spinner
-        Spinner spinner = (Spinner) findViewById(R.id.spinner);
+        Spinner spinner = (Spinner) findViewById(R.id.spinner1);
         spinner.setAdapter(new MyAdapter(
                 toolbar.getContext(),
                 new String[]{
@@ -51,7 +51,7 @@ public class TabActivity extends AppCompatActivity {
                 if(position==2)
                 {
                     getSupportFragmentManager().beginTransaction()
-                            .replace(R.id.container, SectionFragment.newInstance())
+                            .replace(R.id.container, SectionFragment.newInstance("2"))
                             .commit();
                 }
                 else
@@ -60,14 +60,12 @@ public class TabActivity extends AppCompatActivity {
                             .replace(R.id.container, TotalFragment.newInstance())
                             .commit();
                 }
-
             }
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
-
 
     }
 
